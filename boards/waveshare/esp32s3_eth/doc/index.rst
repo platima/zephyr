@@ -1,39 +1,39 @@
-.. zephyr:board:: xiao_esp32s3
+.. zephyr:board:: esp32s3_eth
 
 Overview
 ********
 
-Seeed Studio XIAO ESP32S3 and XIAO ESP32S3 Sense are IoT mini development boards based on the
-Espressif ESP32-S3 WiFi/Bluetooth dual-mode chip.
+Waveshare ESP32-S3-ETH is an IoT mini development boards based on the
+Espressif ESP32-S3R8 WiFi/Bluetooth dual-mode chip.
 
-For more details see the `Seeed Studio XIAO ESP32S3`_ wiki page.
+For more details see the `Waveshare ESP32-S3-ETH`_ wiki page.
 
-.. figure:: img/xiao_esp32s3.jpg
+.. figure:: img/esp32s3_eth.jpg
    :align: center
-   :alt: XIAO ESP32S3
+   :alt: ESP32-S3-ETH
 
-   XIAO ESP32S3
-
-.. figure:: img/xiao-esp32s3-sense.png
-   :align: center
-   :alt: XIAO ESP32S3 Sense
-
-   XIAO ESP32S3 Sense
+   ESP32-S3-ETH
 
 Hardware
 ********
 
-This board is based on the ESP32-S3 with 8MB of flash, WiFi and BLE support. It
-has an USB-C port for programming and debugging, integrated battery charging
-and an U.FL external antenna connector. It is based on a standard XIAO 14 pin
-pinout.
+This board is based on the ESP32-S3R8 with 16MB of flash, WiFi and BLE support. It
+has an USB-C port for programming and debugging, W5500 SPI Ethernet controller,
+WS2812 LED and an U.FL external antenna connector. It is based on a standard
+Waveshare 40 pin pinout.
 
 ESP32-S3 is a low-power MCU-based system on a chip (SoC) with integrated 2.4 GHz Wi-Fi
 and Bluetooth® Low Energy (Bluetooth LE). It consists of high-performance dual-core microprocessor
 (Xtensa® 32-bit LX7), a low power coprocessor, a Wi-Fi baseband, a Bluetooth LE baseband,
 RF module, and numerous peripherals.
 
-Additionally, Sense variant integrates a OV2640 camera sensor, microphone and sdcard slot.
+Not yet implemented features:
+- SD card (SDIO)
+- MIPI CSI camera interface
+- RGB LED
+- 16MB Flash (currently 8MB is supported)
+- USB OTG
+- GPIOs
 
 Supported Features
 ==================
@@ -43,13 +43,13 @@ Supported Features
 Connections and IOs
 ===================
 
-The board uses a standard XIAO pinout, the default pin mapping is the following:
+The board uses a standard Waveshare pinout, the default pin mapping is the following:
 
-.. figure:: img/xiao_esp32s3_pinout.jpg
+.. figure:: img/esp32s3_eth_pinout.jpg
    :align: center
-   :alt: XIAO ESP32S3 Pinout
+   :alt: ESP32-S3-ETH Pinout
 
-   XIAO ESP32S3 and XIAO ESP32S3 Sense Pinout
+   ESP32-S3-ETH Pinout
 
 Prerequisites
 -------------
@@ -111,7 +111,7 @@ To build the sample application using sysbuild use the command:
 .. zephyr-app-commands::
    :tool: west
    :zephyr-app: samples/hello_world
-   :board: xiao_esp32s3
+   :board: esp32s3_eth
    :goals: build
    :west-args: --sysbuild
    :compact:
@@ -160,38 +160,24 @@ Build and flash applications as usual (see :ref:`build_an_application` and
 
 .. tabs::
 
-   .. group-tab:: XIAO ESP32S3
+   .. group-tab:: ESP32-S3-ETH
 
       .. zephyr-app-commands::
          :zephyr-app: samples/hello_world
-         :board: xiao_esp32s3/esp32s3/procpu
+         :board: esp32s3_eth/esp32s3/procpu
          :goals: build
 
-   .. group-tab:: XIAO ESP32S3 Sense
-
-      .. zephyr-app-commands::
-         :zephyr-app: samples/hello_world
-         :board: xiao_esp32s3/esp32s3/procpu/sense
-         :goals: build
-
-The usual ``flash`` target will work with the ``xiao_esp32s3`` board
+The usual ``flash`` target will work with the ``esp32s3_eth`` board
 configuration. Here is an example for the :zephyr:code-sample:`hello_world`
 application.
 
 .. tabs::
 
-   .. group-tab:: XIAO ESP32S3
+   .. group-tab:: ESP32-S3-ETH
 
       .. zephyr-app-commands::
          :zephyr-app: samples/hello_world
-         :board: xiao_esp32s3/esp32s3/procpu
-         :goals: flash
-
-   .. group-tab:: XIAO ESP32S3 Sense
-
-      .. zephyr-app-commands::
-         :zephyr-app: samples/hello_world
-         :board: xiao_esp32s3/esp32s3/procpu/sense
+         :board: esp32s3_eth/esp32s3/procpu
          :goals: flash
 
 Open the serial monitor using the following command:
@@ -206,7 +192,7 @@ message in the monitor:
 .. code-block:: console
 
    ***** Booting Zephyr OS vx.x.x-xxx-gxxxxxxxxxxxx *****
-   Hello World! xiao_esp32s3
+   Hello World! esp32s3_eth
 
 Debugging
 *********
@@ -221,36 +207,22 @@ Here is an example for building the :zephyr:code-sample:`hello_world` applicatio
 
 .. tabs::
 
-   .. group-tab:: XIAO ESP32S3
+   .. group-tab:: ESP32-S3-ETH
 
       .. zephyr-app-commands::
          :zephyr-app: samples/hello_world
-         :board: xiao_esp32s3/esp32s3/procpu
-         :goals: debug
-
-   .. group-tab:: XIAO ESP32S3 Sense
-
-      .. zephyr-app-commands::
-         :zephyr-app: samples/hello_world
-         :board: xiao_esp32s3/esp32s3/procpu/sense
+         :board: esp32s3_eth/esp32s3/procpu
          :goals: debug
 
 You can debug an application in the usual way. Here is an example for the :zephyr:code-sample:`hello_world` application.
 
 .. tabs::
 
-   .. group-tab:: XIAO ESP32S3
+   .. group-tab:: ESP32-S3-ETH
 
       .. zephyr-app-commands::
          :zephyr-app: samples/hello_world
-         :board: xiao_esp32s3/esp32s3/procpu
-         :goals: debug
-
-   .. group-tab:: XIAO ESP32S3 Sense
-
-      .. zephyr-app-commands::
-         :zephyr-app: samples/hello_world
-         :board: xiao_esp32s3/esp32s3/procpu/sense
+         :board: esp32s3_eth/esp32s3/procpu
          :goals: debug
 
 References
@@ -258,6 +230,6 @@ References
 
 .. target-notes::
 
-.. _`Seeed Studio XIAO ESP32S3`: https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/
+.. _`Waveshare ESP32-S3-ETH`: https://www.waveshare.com/wiki/ESP32-S3-ETH
 .. _`JTAG debugging for ESP32-S3`: https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-guides/jtag-debugging/
 .. _`OpenOCD ESP32`: https://github.com/espressif/openocd-esp32/releases

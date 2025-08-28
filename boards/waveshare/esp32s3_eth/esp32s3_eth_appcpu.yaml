@@ -1,5 +1,5 @@
-identifier: xiao_esp32s3/esp32s3/appcpu
-name: XIAO ESP32S3 APPCPU
+identifier: esp32s3_eth/esp32s3/appcpu
+name: ESP32-S3-ETH APPCPU
 type: mcu
 arch: xtensa
 toolchain:
@@ -24,4 +24,4 @@ testing:
     - cmsis_rtos
     - jwt
     - zdsp
-vendor: seeed
+vendor: waveshare

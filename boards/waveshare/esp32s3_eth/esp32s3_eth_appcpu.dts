@@ -5,12 +5,12 @@
  */
 /dts-v1/;
 
-#include <espressif/esp32s3/esp32s3_wroom_n8r8.dtsi>
+#include <espressif/esp32s3/esp32s3_r8.dtsi>
 #include <espressif/partitions_0x0_amp.dtsi>
 
 / {
-	model = "Seeed Xiao ESP32S3 APPCPU";
-	compatible = "espressif,esp32s3";
+	model = "Waveshare ESP32-S3-ETH APPCPU";
+	compatible = "espressif,esp32-s3";
 
 	chosen {
 		zephyr,sram = &sram1;

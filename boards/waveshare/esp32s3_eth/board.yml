@@ -1,9 +1,6 @@
 board:
-  name: xiao_esp32s3
-  full_name: XIAO ESP32S3
-  vendor: seeed
+  name: esp32s3_eth
+  full_name: ESP32-S3-ETH
+  vendor: waveshare
   socs:
   - name: esp32s3
-    variants:
-    - name: 'sense'
-      cpucluster: 'procpu'
